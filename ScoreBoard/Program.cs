@@ -12,13 +12,11 @@ builder.Services.AddControllersWithViews();
 var configuration = builder.Configuration;
 
 
-var connectionString = Environment.MachineName == "RasstekHome"
-    ? configuration.GetConnectionString("ScoreBoardDbContextConnection1")
-    : configuration.GetConnectionString("ScoreBoardDbContextConnection2");
-
 // Use the configuration to configure the database context
 builder.Services.AddDbContext<ScoreBoardDbContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("ScoreBoardDbContextConnection")));
+{
+    options.UseSqlServer(builder.Configuration["ConnectionStrings:ScoreBoardDbContextConnection"]);
+});
 
 builder.Services.AddScoped<IJoueurRepository, ScoreBoardRepository>();
 
@@ -26,10 +24,16 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 
+app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
