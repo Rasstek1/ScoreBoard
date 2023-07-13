@@ -11,5 +11,6 @@ namespace ScoreBoard.Repositories
         void Ajouter(Jeu jeu);
         void Modifier(Jeu jeu);
         void Supprimer(int id);
+
     }
 }

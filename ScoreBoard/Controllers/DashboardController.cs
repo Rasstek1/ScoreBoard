@@ -22,23 +22,11 @@ namespace ScoreBoard.Controllers
         //des joueurs. Cela peut être fait en utilisant votre repository ou tout autre mécanisme d'accès aux données.
         public IActionResult Index()
         {
-            var joueurs = _joueurRepository.GetJoueurs();
-            var jeux = _jeuRepository.ListeJeux;
-
-            var scoresJoueurs = joueurs.Select(joueur => (
-                joueur: joueur,
-                score: jeux.Where(jeu => jeu.JoueurId == joueur.Id).Sum(jeu => jeu.ScoreJoueur)
-            )).ToList();
-
-            var viewModel = new DashboardViewModel
-            {
-                ScoresJoueurs = scoresJoueurs,
-                Joueurs = joueurs
-            };
-
-            return View(viewModel);
+            var viewModel = new DashboardViewModel();
+            // Ajoutez des données à votre modèle de vue ici si nécessaire
+            var viewModelList = new List<DashboardViewModel> { viewModel };
+            return View(viewModelList);
         }
-
 
 
         private int CalculateTotalScore(IEnumerable<Joueur> joueurs)

@@ -19,8 +19,9 @@ builder.Services.AddDbContext<ScoreBoardDbContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:ScoreBoardDbContextConnection"]);
 });
 
-builder.Services.AddScoped<IJoueurRepository, JoueurRepository>();
+builder.Services.AddScoped<IJoueurRepository, ScoreBoardRepository>();
 builder.Services.AddScoped<IJeuRepository, JeuRepository>();
+builder.Services.AddScoped<IJoueurRepository, ScoreBoardRepository>();
 
 var app = builder.Build();
 
@@ -41,12 +42,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
 
-
-
- InitialiseurBD.Seed(app);
-
-
-
+InitialiseurBD.Seed(app);
 
 
 app.Run();
