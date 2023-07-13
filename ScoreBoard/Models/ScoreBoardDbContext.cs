@@ -11,11 +11,6 @@ namespace ScoreBoard.Models
         public DbSet<Joueur> Joueurs { get; set; }
         public DbSet<Jeu> Jeux { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // Configurations supplémentaires si nécessaire
-        }
+       
     }
 }

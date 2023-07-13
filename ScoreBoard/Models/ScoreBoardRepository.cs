@@ -1,4 +1,5 @@
 ﻿using static ScoreBoard.Models.IscoreBoardRepository;
+using ScoreBoard.Repositories;
 
 namespace ScoreBoard.Models
 {

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using ScoreBoard.Models;
+using ScoreBoard.Repositories;
 using ScoreBoard.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,7 +19,8 @@ builder.Services.AddDbContext<ScoreBoardDbContext>(options =>
     options.UseSqlServer(builder.Configuration["ConnectionStrings:ScoreBoardDbContextConnection"]);
 });
 
-builder.Services.AddScoped<IJoueurRepository, ScoreBoardRepository>();
+builder.Services.AddScoped<IJoueurRepository, JoueurRepository>();
+builder.Services.AddScoped<IJeuRepository, JeuRepository>();
 
 var app = builder.Build();
 
@@ -38,6 +40,11 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Dashboard}/{action=Index}/{id?}");
+
+
+
+ InitialiseurBD.Seed(app);
+
 
 
 
