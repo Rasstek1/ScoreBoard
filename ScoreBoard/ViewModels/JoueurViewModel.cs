@@ -1,4 +1,8 @@
-﻿namespace ScoreBoard.Models
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using ScoreBoard.Models;
+
+
+namespace ScoreBoard.Models
 {
     public class JoueurViewModel
     {

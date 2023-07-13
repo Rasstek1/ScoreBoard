@@ -1,0 +1,32 @@
+﻿@model JeuViewModel
+
+<h2>Détails du jeu #@Model.Id</h2>
+
+<div>
+    <h4>Nom :</h4>
+    <p>@Model.Nom</p>
+</div>
+<div>
+    <h4>Date de sortie :</h4>
+    <p>@Model.DateSortie</p>
+</div>
+<div>
+    <h4>Description :</h4>
+    <p>@Model.Description</p>
+</div>
+<div>
+    <h4>Joueur :</h4>
+    <p>@Model.NomJoueur</p>
+</div>
+<div>
+    <h4>Score du joueur :</h4>
+    <p>@Model.ScoreJoueur</p>
+</div>
+<div>
+    <h4>Date d'enregistrement :</h4>
+    <p>@Model.DateEnregistrement</p>
+</div>
+<p>
+    <a href="@Url.Action("Edit", "Jeu", new { id = Model.Id })" class="btn btn-primary">Modifier</a>
+    <a href="@Url.Action("Index", "Jeu")" class="btn btn-secondary">Retour à la liste</a>
+</p>

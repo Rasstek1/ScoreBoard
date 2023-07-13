@@ -6,6 +6,7 @@
     Êtes-vous sûr de vouloir supprimer ce joueur ?
 </div>
 
-@*TODO: Complétez cette vue de façon à  
-        confirmer ou annuler la supression*@
-
+<form method="post" action="@Url.Action("Supprimer", "Joueur", new { id = Model.Id })">
+    <button type="submit" class="btn btn-danger">Confirmer</button>
+    <a href="@Url.Action("Index", "Joueur")" class="btn btn-secondary">Annuler</a>
+</form>

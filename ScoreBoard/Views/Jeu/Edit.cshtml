@@ -1,0 +1,34 @@
+﻿@model JeuViewModel
+
+<h2>Modifier le jeu #@Model.Id</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.Id">
+    <div class="form-group">
+        <label>Nom :</label>
+        <input class="form-control" asp-for="Nom" />
+    </div>
+    <div class="form-group">
+        <label>Date de sortie :</label>
+        <input class="form-control" type="date" asp-for="DateSortie" />
+    </div>
+    <div class="form-group">
+        <label>Description :</label>
+        <textarea class="form-control" asp-for="Description"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Joueur :</label>
+        <select class="form-control" asp-for="JoueurId" asp-items="Model.Joueurs">
+            <option value="">Sélectionner un joueur</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Score du joueur :</label>
+        <input class="form-control" type="number" asp-for="ScoreJoueur" />
+    </div>
+    <div class="form-group">
+        <label>Date d'enregistrement :</label>
+        <input class="form-control" type="date" asp-for="DateEnregistrement" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="@Url.Action("Index", "Jeu")" class="btn btn-secondary">Annuler</a>
+</form>

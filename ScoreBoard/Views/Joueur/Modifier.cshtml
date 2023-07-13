@@ -1,1 +1,40 @@
-﻿
+﻿@model JoueurViewModel
+
+<h1>Modifier un joueur</h1>
+
+<form asp-action="Modifier" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label for="Nom">Nom :</label>
+        <input class="form-control" asp-for="Nom" />
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Prenom">Prénom :</label>
+        <input class="form-control" asp-for="Prenom" />
+        <span asp-validation-for="Prenom" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Equipe">Équipe :</label>
+        <input class="form-control" asp-for="Equipe" />
+        <span asp-validation-for="Equipe" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Telephone">Téléphone :</label>
+        <input class="form-control" asp-for="Telephone" />
+        <span asp-validation-for="Telephone" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label for="Courriel">Courriel :</label>
+        <input class="form-control" asp-for="Courriel" />
+        <span asp-validation-for="Courriel" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Annuler</a>
+</form>

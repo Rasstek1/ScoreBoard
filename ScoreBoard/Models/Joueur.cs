@@ -26,5 +26,10 @@ namespace ScoreBoard.Models
         public string Courriel { get; set; }
 
         public List<Jeu>? Jeux { get; set; }
+        public int ScoreTotal { get; set; }
     }
 }
+
+
+//La classe Joueur représente un joueur avec des propriétés telles que l'ID, le nom, le prénom, l'équipe, le numéro de téléphone,
+//le courriel et une liste de jeux. 

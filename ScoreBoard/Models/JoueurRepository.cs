@@ -16,11 +16,10 @@ namespace ScoreBoard.Repositories
             ListeJoueurs = _dbContext.Joueurs.ToList();
         }
 
-        public Joueur? GetJoueur(int id)
+        public List<Joueur> GetJoueurs()
         {
-            return ListeJoueurs.FirstOrDefault(j => j.Id == id);
+            return _dbContext.Joueurs.ToList();
         }
-
         public void Ajouter(Joueur joueur)
         {
             _dbContext.Joueurs.Add(joueur);
@@ -44,5 +43,15 @@ namespace ScoreBoard.Repositories
                 ListeJoueurs.Remove(joueur);
             }
         }
+
+        public Joueur GetJoueur(int id)
+        {
+            // Implémentation de la récupération d'un joueur spécifique en fonction de son identifiant
+            return _dbContext.Joueurs.FirstOrDefault(j => j.Id == id);
+            // ...
+        }
+
+
+
     }
 }

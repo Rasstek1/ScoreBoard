@@ -1,1 +1,32 @@
-﻿@*Cette vue doit afficher la liste des joueurs*@
+﻿@model IEnumerable<Joueur>
+
+<h1>Liste des joueurs</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Équipe</th>
+            <th>Téléphone</th>
+            <th>Courriel</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var joueur in Model)
+        {
+            <tr>
+                <td>@joueur.Nom</td>
+                <td>@joueur.Prenom</td>
+                <td>@joueur.Equipe</td>
+                <td>@joueur.Telephone</td>
+                <td>@joueur.Courriel</td>
+                <td>
+                    <a href="@Url.Action("Modifier", new { id = joueur.Id })">Modifier</a>
+                    <a href="@Url.Action("Supprimer", new { id = joueur.Id })">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

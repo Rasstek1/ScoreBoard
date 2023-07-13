@@ -5,7 +5,7 @@ namespace ScoreBoard.ViewModels
 {
     public class DashboardViewModel
     {
-        public Joueur Joueur { get; set; }
-        public int ScoreTotal { get; set; }
+        public List<(Joueur joueur, int score)> ScoresJoueurs { get; set; }
+        public List<Joueur> Joueurs { get; set; }
     }
 }

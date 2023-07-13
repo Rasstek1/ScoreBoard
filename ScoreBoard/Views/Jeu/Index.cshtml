@@ -1,0 +1,33 @@
+﻿@model List<JeuViewModel>
+
+<h2>Liste des jeux</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Date de sortie</th>
+            <th>Joueur</th>
+            <th>Score du joueur</th>
+            <th>Date d'enregistrement</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var jeu in Model)
+        {
+            <tr>
+                <td>@jeu.Nom</td>
+                <td>@jeu.DateSortie</td>
+                <td>@jeu.NomJoueur</td>
+                <td>@jeu.ScoreJoueur</td>
+                <td>@jeu.DateEnregistrement</td>
+                <td>
+                    <a href="@Url.Action("Details", "Jeu", new { id = jeu.Id })">Détails</a> |
+                    <a href="@Url.Action("Edit", "Jeu", new { id = jeu.Id })">Modifier</a> |
+                    <a href="@Url.Action("DeleteConfirmation", "Jeu", new { id = jeu.Id })">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
